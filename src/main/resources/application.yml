@@ -1,9 +1,16 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     password: 13121128
-    name: root
-    url: jdbc:mysql://localhost:3306/greentea
+    username: root
+    url: jdbc:mysql://localhost:3306/greentea?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
 
 server:
   port: 80
+
+mybatis:
+  mapper-locations: classpath:/resources/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.mean.greentea.dao

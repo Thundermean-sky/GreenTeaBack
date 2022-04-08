@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mean.greentea.dao.ComicMapper">
+    <resultMap id="comicMapper" type="com.mean.greentea.entity.Comic"/>
+    <select id="getComicListByTypeAndProcess" resultMap="comicMapper">
+        SELECT CID, name, author, imgUrl FROM comic
+        WHERE comicType LIKE CONCAT('%',#{type},'%') AND states LIKE CONCAT('%',#{process},'%');
+    </select>
+
+    <select id="getComicData" resultMap="comicMapper">
+        SELECT * FROM comic WHERE CID = #{CID}
+    </select>
+</mapper>
