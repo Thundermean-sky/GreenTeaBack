@@ -14,4 +14,8 @@ public interface ComicMapper {
     List<Comic> getComicListByTypeAndProcess(@Param("type") String type, @Param("process") String process);
 
     Comic getComicData(@Param("CID") String CID);
+
+    List<Comic> getComicListByRec();
+
+    void putComicData(Comic comic);
 }

@@ -21,7 +21,6 @@ public class ComicServiceImpl implements ComicService {
         List<Comic>comicList = null;
         try{
             comicList = comicMapper.getComicListByTypeAndProcess(type, process);
-            System.out.println(comicList);
         }catch (JSONException e)
         {
             result.set("msg","服务器错误");
@@ -45,6 +44,28 @@ public class ComicServiceImpl implements ComicService {
         result.set("data",comic);
         result.set("msg","success");
         return 1;
+    }
+
+    @Override
+    public int getComicListByRec(JSONObject result) {
+        List<Comic>comicList;
+        try{
+            comicList = comicMapper.getComicListByRec();
+        }catch (JSONException e)
+        {
+            result.set("msg","服务器错误");
+            return 2;
+        }
+        result.set("data",comicList);
+        result.set("msg","success");
+        return 1;
+    }
+
+    @Override
+    public int putComicData(JSONObject result) {
+
+
+        return 0;
     }
 
 }

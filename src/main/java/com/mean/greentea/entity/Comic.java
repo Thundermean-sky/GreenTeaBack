@@ -13,5 +13,5 @@ public class Comic {
     private String viewUrl;
     private String introduction;
     private String imgUrl;
-    private String status;
+    private String states;
 }

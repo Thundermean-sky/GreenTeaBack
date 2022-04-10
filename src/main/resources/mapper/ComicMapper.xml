@@ -10,6 +10,10 @@
     </select>
 
     <select id="getComicData" resultMap="comicMapper">
-        SELECT * FROM comic WHERE CID = #{CID}
+        SELECT * FROM comic WHERE CID = #{CID};
+    </select>
+
+    <select id="getComicListByRec" resultMap="comicMapper">
+        SELECT CID,name,author FROM comic ORDER BY lastUpdate DESC LIMIT 5;
     </select>
 </mapper>
