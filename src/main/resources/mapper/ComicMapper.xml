@@ -16,4 +16,24 @@
     <select id="getComicListByRec" resultMap="comicMapper">
         SELECT CID,name,author FROM comic ORDER BY lastUpdate DESC LIMIT 5;
     </select>
+
+    <select id="searchComicData" resultMap="comicMapper">
+        SELECT CID, name, author FROM comic
+        WHERE name LIKE CONCAT('%',#{searchName},'%') OR author LIKE CONCAT('%',#{searchName},'%');
+    </select>
+
+    <update id="putComicData" parameterType="java.util.Map">
+        UPDATE comic
+            SET
+                name = #{comic.name},
+                author = #{comic.author},
+                episodes = #{comic.episodes},
+                lastUpdate = #{comic.lastUpdate},
+                viewUrl = #{comic.viewUrl},
+                introduction = #{comic.introduction},
+                states = #{comic.states}
+            WHERE CID = #{comic.cid};
+    </update>
+
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.mean.greentea.service;
 
 import cn.hutool.json.JSONObject;
+import com.mean.greentea.entity.Comic;
 
 public interface ComicService {
 
@@ -14,6 +15,9 @@ public interface ComicService {
     int getComicListByRec(JSONObject result);
 
     // 更新漫画信息
-    int putComicData(JSONObject result);
+    int putComicData(Comic comic, JSONObject result);
+
+    // 查找漫画信息
+    int searchComicData(String searchName, JSONObject result);
 
 }

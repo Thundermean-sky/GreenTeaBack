@@ -62,10 +62,36 @@ public class ComicServiceImpl implements ComicService {
     }
 
     @Override
-    public int putComicData(JSONObject result) {
+    public int putComicData(Comic comic, JSONObject result) {
+        int res = 0;
+        try {
+            res = comicMapper.putComicData(comic);
+        } catch (JSONException e)
+        {
+            result.set("msg","服务器错误");
+            res = 2;
+            return res;
+        }
+        if(res == 1)
+        {
+            result.set("msg","success");
+        }
+        return res;
+    }
 
-
-        return 0;
+    @Override
+    public int searchComicData(String searchName, JSONObject result) {
+        List<Comic>comicList = null;
+        try {
+            comicList = comicMapper.searchComicData(searchName);
+        } catch (JSONException e)
+        {
+            result.set("msg", "服务器错误");
+            return 2;
+        }
+        result.set("data",comicList);
+        result.set("msg", "success");
+        return 1;
     }
 
 }

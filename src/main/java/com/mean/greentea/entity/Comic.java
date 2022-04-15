@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Comic {
-    private String CID;
+    private String cid;
     private String name;
     private String author;
     private float episodes;

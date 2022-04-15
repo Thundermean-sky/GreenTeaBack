@@ -17,5 +17,7 @@ public interface ComicMapper {
 
     List<Comic> getComicListByRec();
 
-    void putComicData(Comic comic);
+    int putComicData(@Param("comic") Comic comic);
+
+    List<Comic> searchComicData(@Param("searchName") String searchName);
 }
